@@ -4,8 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
@@ -29,7 +32,8 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                     //Greeting("Android")
-                    MyBox()
+                    //MyBox()
+                    MyColumn()
                 }
             }
         }
@@ -75,5 +79,40 @@ fun MyBox() {
 fun MyBoxPreview() {
     JetpackcomposecourseTheme {
         MyBox()
+    }
+}
+
+
+// COLUMN SERIA COMO UN LINEAR LAYOUT EN POSICION VERTICAL
+@Composable
+fun MyColumn(){
+    Column(
+        Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.SpaceBetween) {
+        Text(text = "ejemplo 1", modifier = Modifier
+            .background(Color.Red)
+            .fillMaxWidth()
+            .height(300.dp))
+        Text(text = "ejemplo 2", modifier = Modifier
+            .background(Color.Black)
+            .fillMaxWidth()
+            .height(300.dp))
+        Text(text = "ejemplo 3", modifier = Modifier
+            .background(Color.Cyan)
+            .fillMaxWidth()
+            .height(300.dp))
+        Text(text = "ejemplo 4", modifier = Modifier
+            .background(Color.Blue)
+            .fillMaxWidth()
+            .height(300.dp))
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MyColumnPreview() {
+    JetpackcomposecourseTheme {
+        MyColumn()
     }
 }
