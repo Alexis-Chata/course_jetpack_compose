@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -33,7 +35,8 @@ class MainActivity : ComponentActivity() {
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                     //Greeting("Android")
                     //MyBox()
-                    MyColumn()
+                    //MyColumn()
+                    MyRow()
                 }
             }
         }
@@ -114,5 +117,49 @@ fun MyColumn(){
 fun MyColumnPreview() {
     JetpackcomposecourseTheme {
         MyColumn()
+    }
+}
+
+
+// ROW SERIA COMO UN LINEAR LAYOUT EN POSICION HORIZONTAL
+@Composable
+fun MyRow() {
+    Row(
+        Modifier
+            .fillMaxSize()
+            .horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Text(
+            text = "ejemplo 1", modifier = Modifier
+                .background(Color.Red)
+                .width(300.dp)
+                .height(300.dp)
+        )
+        Text(
+            text = "ejemplo 2", modifier = Modifier
+                .background(Color.Black)
+                .width(300.dp)
+                .height(300.dp)
+        )
+        Text(
+            text = "ejemplo 3", modifier = Modifier
+                .background(Color.Cyan)
+                .width(300.dp)
+                .height(300.dp)
+        )
+        Text(
+            text = "ejemplo 4", modifier = Modifier
+                .background(Color.Blue)
+                .width(300.dp)
+                .height(300.dp)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MyRowPreview() {
+    JetpackcomposecourseTheme {
+        MyRow()
     }
 }
