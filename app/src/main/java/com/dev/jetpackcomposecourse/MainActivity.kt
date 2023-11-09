@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -193,6 +194,7 @@ fun MyCombinandoLayout() {
         ) {
             Text(text = "Ejemplo 1")
         }
+        MySpacer(10)
         Row(
             Modifier
                 .fillMaxWidth()
@@ -216,6 +218,7 @@ fun MyCombinandoLayout() {
                 Text(text = "Ejemplo 3")
             }
         }
+        MySpacer(30)
         Box(
             Modifier
                 .fillMaxWidth()
@@ -232,4 +235,10 @@ fun MyCombinandoLayout() {
 @Composable
 fun MyCombinandoLayoutPreview() {
     MyCombinandoLayout()
+}
+
+// COMPONENT SPACER
+@Composable
+fun MySpacer(size:Int){
+    Spacer(modifier = Modifier.height(size.dp))
 }
