@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -36,7 +37,8 @@ class MainActivity : ComponentActivity() {
                     //Greeting("Android")
                     //MyBox()
                     //MyColumn()
-                    MyRow()
+                    //MyRow()
+                    MyCombinandoLayout()
                 }
             }
         }
@@ -162,4 +164,55 @@ fun MyRowPreview() {
     JetpackcomposecourseTheme {
         MyRow()
     }
+}
+
+
+// COMBINANDO LAYOUTS
+@Composable
+fun MyCombinandoLayout() {
+    Column(Modifier.fillMaxSize()) {
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.Cyan)
+        ) {
+
+        }
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+        ) {
+            Box(modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+                .background(Color.Red)) {
+
+            }
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .background(Color.Green),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(text = "hola")
+            }
+        }
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.Blue)
+        ) {
+
+        }
+    }
+}
+
+@Preview
+@Composable
+fun MyCombinandoLayoutPreview() {
+    MyCombinandoLayout()
 }
