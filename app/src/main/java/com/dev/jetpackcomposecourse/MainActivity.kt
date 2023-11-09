@@ -33,7 +33,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetpackcomposecourseTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
                     //Greeting("Android")
                     //MyBox()
                     //MyColumn()
@@ -90,27 +93,36 @@ fun MyBoxPreview() {
 
 // COLUMN SERIA COMO UN LINEAR LAYOUT EN POSICION VERTICAL
 @Composable
-fun MyColumn(){
+fun MyColumn() {
     Column(
         Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.SpaceBetween) {
-        Text(text = "ejemplo 1", modifier = Modifier
-            .background(Color.Red)
-            .fillMaxWidth()
-            .height(300.dp))
-        Text(text = "ejemplo 2", modifier = Modifier
-            .background(Color.Black)
-            .fillMaxWidth()
-            .height(300.dp))
-        Text(text = "ejemplo 3", modifier = Modifier
-            .background(Color.Cyan)
-            .fillMaxWidth()
-            .height(300.dp))
-        Text(text = "ejemplo 4", modifier = Modifier
-            .background(Color.Blue)
-            .fillMaxWidth()
-            .height(300.dp))
+            .verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.SpaceBetween
+    ) {
+        Text(
+            text = "ejemplo 1", modifier = Modifier
+                .background(Color.Red)
+                .fillMaxWidth()
+                .height(300.dp)
+        )
+        Text(
+            text = "ejemplo 2", modifier = Modifier
+                .background(Color.Black)
+                .fillMaxWidth()
+                .height(300.dp)
+        )
+        Text(
+            text = "ejemplo 3", modifier = Modifier
+                .background(Color.Cyan)
+                .fillMaxWidth()
+                .height(300.dp)
+        )
+        Text(
+            text = "ejemplo 4", modifier = Modifier
+                .background(Color.Blue)
+                .fillMaxWidth()
+                .height(300.dp)
+        )
     }
 }
 
@@ -129,7 +141,8 @@ fun MyRow() {
     Row(
         Modifier
             .fillMaxSize()
-            .horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.SpaceBetween
+            .horizontalScroll(rememberScrollState()),
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
             text = "ejemplo 1", modifier = Modifier
@@ -175,20 +188,23 @@ fun MyCombinandoLayout() {
             Modifier
                 .fillMaxWidth()
                 .weight(1f)
-                .background(Color.Cyan)
+                .background(Color.Cyan),
+            contentAlignment = Alignment.Center
         ) {
-
+            Text(text = "Ejemplo 1")
         }
         Row(
             Modifier
                 .fillMaxWidth()
                 .weight(1f)
         ) {
-            Box(modifier = Modifier
-                .weight(1f)
-                .fillMaxHeight()
-                .background(Color.Red)) {
-
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .background(Color.Red), contentAlignment = Alignment.Center
+            ) {
+                Text(text = "Ejemplo 2")
             }
             Box(
                 modifier = Modifier
@@ -197,16 +213,17 @@ fun MyCombinandoLayout() {
                     .background(Color.Green),
                 contentAlignment = Alignment.Center
             ) {
-                Text(text = "hola")
+                Text(text = "Ejemplo 3")
             }
         }
         Box(
             Modifier
                 .fillMaxWidth()
                 .weight(1f)
-                .background(Color.Blue)
+                .background(Color.Blue),
+            contentAlignment = Alignment.BottomCenter
         ) {
-
+            Text(text = "Ejemplo 4")
         }
     }
 }
