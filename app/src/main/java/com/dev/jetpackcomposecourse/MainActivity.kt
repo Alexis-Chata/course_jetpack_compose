@@ -1,6 +1,7 @@
 package com.dev.jetpackcomposecourse
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -40,15 +41,74 @@ class MainActivity : ComponentActivity() {
             JetpackcomposecourseTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
-                    //Greeting("Android")
-                    //MyBox()
-                    //MyColumn()
-                    //MyRow()
-                    //MyCombinandoLayout()
-                    MyStateExample()
+                    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+
+                        //Greeting("Android")
+                        //MyBox()
+                        //MyColumn()
+                        //MyRow()
+                        //MyCombinandoLayout()
+                        //MyStateExample()
+                        MyText()
+                        MyTextFieldAdvance()
+                        MyTextFieldOutlined()
+                        MyButtonExample()
+                        MyImage()
+                        MyImageAdvance()
+                        MyIcon()
+                        MyProgress()
+                        MyProgressAdvance()
+                        MyCard()
+                        MyBadgeBox()
+                        MyDivider()
+                        MySwitch()
+                        MyCheckBox()
+                        MyCheckBoxWithText()
+                        MyCheckBoxWithTextCompletedPreview()
+                        MyTriStatusCheckBox()
+                        MyRadioButtonListPreview()
+                        MyRadioButton()
+                        MyDropDownMenu()
+                        BasicSlider()
+                        AdvanceSlider()
+                        MyRangeSlider()
+
+                        var show1 by rememberSaveable {
+                            mutableStateOf(false)
+                        }
+                        Button(onClick = { show1 = true }) {
+                            Text(text = "Mostrar dialogo 1")
+                        }
+                        MyAlertDialog(show = show1,
+                            onDismiss = { show1 = false },
+                            onConfirm = { Log.i("aris", "click") })
+
+                        var show2 by rememberSaveable {
+                            mutableStateOf(false)
+                        }
+                        Button(onClick = { show2 = true }) {
+                            Text(text = "Mostrar dialogo 2")
+                        }
+                        MySimpleCustomDialog(show = show2, onDismiss = { show2 = false })
+
+                        var show3 by rememberSaveable {
+                            mutableStateOf(false)
+                        }
+                        Button(onClick = { show3 = true }) {
+                            Text(text = "Mostrar dialogo 3")
+                        }
+                        MyCustomDialog(show = show3, onDismiss = { show3 = false })
+
+                        var show4 by rememberSaveable {
+                            mutableStateOf(false)
+                        }
+                        Button(onClick = { show4 = true }) {
+                            Text(text = "Mostrar dialogo 4")
+                        }
+                        MyConfirmationDialog(show = show4, onDismiss = { show4 = false })
+                    }
                 }
             }
         }
@@ -58,8 +118,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
-        modifier = modifier
+        text = "Hello $name!", modifier = modifier
     )
 }
 
@@ -104,28 +163,33 @@ fun MyColumn() {
     Column(
         Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.SpaceBetween
+            .verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
-            text = "ejemplo 1", modifier = Modifier
+            text = "ejemplo 1",
+            modifier = Modifier
                 .background(Color.Red)
                 .fillMaxWidth()
                 .height(300.dp)
         )
         Text(
-            text = "ejemplo 2", modifier = Modifier
+            text = "ejemplo 2",
+            modifier = Modifier
                 .background(Color.Black)
                 .fillMaxWidth()
                 .height(300.dp)
         )
         Text(
-            text = "ejemplo 3", modifier = Modifier
+            text = "ejemplo 3",
+            modifier = Modifier
                 .background(Color.Cyan)
                 .fillMaxWidth()
                 .height(300.dp)
         )
         Text(
-            text = "ejemplo 4", modifier = Modifier
+            text = "ejemplo 4",
+            modifier = Modifier
                 .background(Color.Blue)
                 .fillMaxWidth()
                 .height(300.dp)
@@ -152,25 +216,29 @@ fun MyRow() {
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
-            text = "ejemplo 1", modifier = Modifier
+            text = "ejemplo 1",
+            modifier = Modifier
                 .background(Color.Red)
                 .width(300.dp)
                 .height(300.dp)
         )
         Text(
-            text = "ejemplo 2", modifier = Modifier
+            text = "ejemplo 2",
+            modifier = Modifier
                 .background(Color.Black)
                 .width(300.dp)
                 .height(300.dp)
         )
         Text(
-            text = "ejemplo 3", modifier = Modifier
+            text = "ejemplo 3",
+            modifier = Modifier
                 .background(Color.Cyan)
                 .width(300.dp)
                 .height(300.dp)
         )
         Text(
-            text = "ejemplo 4", modifier = Modifier
+            text = "ejemplo 4",
+            modifier = Modifier
                 .background(Color.Blue)
                 .width(300.dp)
                 .height(300.dp)
@@ -210,7 +278,8 @@ fun MyCombinandoLayout() {
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxHeight()
-                    .background(Color.Red), contentAlignment = Alignment.Center
+                    .background(Color.Red),
+                contentAlignment = Alignment.Center
             ) {
                 Text(text = "Ejemplo 2")
             }
@@ -245,7 +314,7 @@ fun MyCombinandoLayoutPreview() {
 
 // COMPONENT SPACER SIRVE PARA DAR UNA SEPARACION O ESPACIO
 @Composable
-fun MySpacer(size:Int){
+fun MySpacer(size: Int) {
     Spacer(modifier = Modifier.height(size.dp))
 }
 
